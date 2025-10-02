@@ -135,6 +135,20 @@ databaseChangeLog:
                   value: ADMIN
 
   - changeSet:
+      id: 008-insert-default-organization
+      author: system
+      changes:
+        - insert:
+            tableName: organizations
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: name
+                  value: Default Organization
+
+  - changeSet:
       id: 006-create-categories
       author: kris
       changes:
