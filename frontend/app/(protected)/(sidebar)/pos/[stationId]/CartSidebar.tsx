@@ -163,18 +163,18 @@ export function CartSidebar({
               </div>
             </div>
 
-            <div className="space-y-2">
+            <div className="flex gap-2">
               <Button
                 onClick={onProcessSale}
                 disabled={isProcessingSale}
-                className="w-full bg-green-600 hover:bg-green-700 text-white"
+                className="flex-1 aspect-square min-h-20 bg-green-600 hover:bg-green-700 text-white text-lg font-semibold"
               >
                 {isProcessingSale ? "Processing..." : "Sell"}
               </Button>
               <Button
                 onClick={onClearCart}
                 variant="outline"
-                className="w-full"
+                className="flex-1 aspect-square min-h-20 text-lg font-semibold"
               >
                 Cancel
               </Button>
