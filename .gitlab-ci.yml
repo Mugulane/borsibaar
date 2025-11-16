@@ -86,6 +86,12 @@ deploy-job:
         if [ -f .env.production ]; then
           cp .env.production .env
         fi
+
+        # Clean/repair builder cache and avoid BuildKit flakiness
+        sudo systemctl restart docker
+        docker buildx prune -af || true
+        docker builder prune -af || true
+        docker image prune -af || true
         
         # Stop existing containers
         docker-compose -f $DOCKER_COMPOSE_FILE down
